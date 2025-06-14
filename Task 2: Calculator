@@ -1,0 +1,66 @@
+from tkinter import *
+from tkinter import messagebox
+
+# Create main window
+window = Tk()
+window.geometry("500x300")
+
+# Variables
+Number1 = IntVar()
+Number2 = IntVar()
+
+# Title label
+l1 = Label(window, text="calculator", font=("arial", 20))
+l1.pack(pady=20)
+
+# Number1 label and entry
+l2 = Label(window, text="Number1", font=("arial", 10), fg="blue")
+l2.place(x=50, y=100)
+t1 = Entry(window, textvariable=Number1)
+t1.place(x=150, y=100)
+
+# Number2 label and entry
+l3 = Label(window, text="Number2", fg="blue")
+l3.place(x=50, y=150)
+t2 = Entry(window, textvariable=Number2)
+t2.place(x=150, y=150)
+
+# Define operations
+def add():
+    result = Number1.get() + Number2.get()
+    output.config(text=f"result: {result}", fg="green")
+
+def sub():
+    result = Number1.get() - Number2.get()
+    output.config(text=f"result: {result}", fg="green")
+
+def mul():
+    result = Number1.get() * Number2.get()
+    output.config(text=f"result: {result}", fg="green")
+
+def div():
+    if Number2.get() == 0:
+        messagebox.showerror("error", "number2 is 0")
+    else:
+        result = Number1.get() // Number2.get()
+        output.config(text=f"result: {result}", fg="green")
+
+# Operation buttons
+b1 = Button(window, text="+", command=add)
+b1.place(x=50, y=200)
+
+b2 = Button(window, text="-", command=sub)
+b2.place(x=100, y=200)
+
+b3 = Button(window, text="x", command=mul)
+b3.place(x=200, y=200)
+
+b4 = Button(window, text="/", command=div)
+b4.place(x=300, y=200)
+
+# Output label
+output = Label(window, text=" ", fg="green", font=("arial", 10))
+output.place(x=150, y=230)
+
+# Run the app
+window.mainloop()
