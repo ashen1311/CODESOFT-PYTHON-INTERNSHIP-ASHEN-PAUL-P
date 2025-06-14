@@ -42,4 +42,4 @@ Button(window, text="Remove Task", width=12, command=remove_task).pack(pady=5)
 Button(window, text="Mark as Done", width=12, command=mark_done).pack(pady=5)
 listbox = Listbox(window, width=40, height=10, font=("Arial", 12))
 listbox.pack(pady=10)
-root.mainloop
+window.mainloop
